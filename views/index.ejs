@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DataTables</title>
+    <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css' />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $('#example').DataTable( {
+            searching: false,
+                  ordering: true,
+                  serverSide: true,
+                  sAjaxSource: "/",
+                  fnServerParams: function (aoData) {
+                    //push all the filter/param you want to send in the ajax req
+                    // aoData.push({ "name": "username", "value": $('#username').val() });
+                  },
+
+                  fnServerData: function (sSource, aoData, fnCallback) {
+
+                      $.ajax({
+                          url: sSource,
+                          data: aoData,
+                          type: 'POST',
+                          lengthChange: false,
+                          dataType: 'json',
+                          success: function (json) {
+                              refresh = false;
+                              fnCallback(json);
+                          },
+                          error: function (data) {
+                              
+                          }
+                      });
+                  },
+              columns: [
+                  { title: "Name" },
+                  { title: "Position" },
+                  { title: "Office" },
+                  { title: "Extn." },
+                  { title: "Start date" },
+                  { title: "Salary" }
+              ]
+          } );
+      } );
+    </script>
+  </head>
+  <body>
+    <h1>DataTables</h1>
+    <table id="example" class="display" width="100%"></table>
+  </body>
+</html>
