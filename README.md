@@ -10,7 +10,7 @@ and send the data to the view as json.
 
 Don't forget to bind `recordsTotal` (number of total records) and `recordsFiltered` (number of filtered records)
 
-`let viewObj = {}
-  viewObj.result = []; //result goes here
-  viewObj.recordsTotal = 12; //dynamic number goes here
+`let viewObj = {} <br />
+  viewObj.result = []; //result goes here <br />
+  viewObj.recordsTotal = 12; //dynamic number goes here <br />
   viewObj.recordsFiltered = 9;//dynamic number goes here`
