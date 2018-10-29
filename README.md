@@ -12,7 +12,7 @@ Don't forget to bind `recordsTotal` (number of total records) and `recordsFilter
 
 ```
 let viewObj = {}
-viewObj.result = []; //result goes here
+viewObj.data = []; //result goes here
 viewObj.recordsTotal = 12; //dynamic number goes here
 viewObj.recordsFiltered = 9; //dynamic number goes here
 ```
